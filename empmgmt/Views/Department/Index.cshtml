@@ -1,0 +1,97 @@
+﻿@model IEnumerable<empmgmt.Models.DepartmentViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="row dash w-100">
+    <div class="col-md-2 dashboard">
+        <div class="admin_profile">
+            <h2>Admin</h2>
+        </div><hr />
+        <div class="nav_link">
+             <ul class="nav-links">
+                 <li>
+                     <a href="/Dashboard/Index"><i class='bx bx-grid-alt' ></i> Dashboard</a>
+                 </li>
+                    <li>
+                     <a href="/Department/Index"><i class='bx bx-laptop'></i> Departments</a>
+                 </li>
+                 <li>
+                     <a href="/Position/Index"><i class='bx bxs-user-badge'></i> Positions</a>
+                 </li>
+                  <li>
+                     <a href="/User/Index"><i class='bx bxs-coin-stack'></i> View Employee</a>
+                 </li>
+                  <li>
+                     <a href="/Project/Index"><i class='bx bx-box' ></i> Projects</a>
+                 </li>
+                 <li>
+                     <a href="/Leave/Index"><i class='bx bx-message' ></i> View Leave</a>
+                 </li>
+                <li>
+                     <a href="/User/Profile"><i class='bx bx-user' ></i> User</a>
+                 </li>
+                 <li>
+                     <a href="/User/Logout"><i class='bx bx-exit'></i> Log Out</a>
+                 </li>
+             </ul>
+        </div>
+    </div>
+     <div class="col-md-10 side">
+         <div class="side_head">
+             <h2 class="pt-4">Employee Management System -> Department</h2>
+         </div>
+        <div class="sides">
+            
+
+<p>
+    <a asp-action="Create" class="create">Create New</a>
+</p>
+<table class="table pt-4">
+    <thead>
+        <tr>
+             <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="edit-btn">Edit</a> 
+                <a asp-action="Delete" class="delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+        </div>
+    </div>
+</div>

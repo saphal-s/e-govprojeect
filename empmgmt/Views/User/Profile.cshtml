@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<empmgmt.Models.UserViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="row dash w-100">
+    <div class="col-md-2 dashboard">
+        <div class="admin_profile">
+            <h2>User</h2>
+        </div><hr />
+        <div class="nav_link">
+             <ul class="nav-links">
+                 <li>
+                     <a href="/Dashboard/Employeedash"><i class='bx bx-grid-alt' ></i> Dashboard</a>
+                 </li>
+                  <li>
+                     <a href="/User/Profile"><i class='bx bxs-user-badge'></i>Profile</a>
+                 </li>
+                 <li>
+                     <a href="/Leave/Userleave"><i class='bx bx-message' ></i> View Leave</a>
+                 </li>
+                 <li>
+                     <a href="/User/Profile"><i class='bx bx-user' ></i> User</a>
+                 </li>
+                 <li>
+                     <a href="/User/Logout"><i class='bx bx-exit'></i> Log Out</a>
+                 </li>
+             </ul>
+        </div>
+    </div>
+    <div class="col-md-10 side">
+        <div class="side_head">
+            <h2 class="pt-4">Employee Management System -> Employee</h2>
+        </div>
+        <div class="sides">
+            @foreach (var item in Model)
+            {
+                <div class="profile pt-4">
+                    <div class="employee-img">
+                        <img src="~/image/img.png" />
+                        <h3> @Html.DisplayFor(modelItem => item.FirstName)  @Html.DisplayFor(modelItem => item.LastName)</h3>
+                    </div>
+                    <div class="col-md-8 offset-md-2">
+                        <div class="row pt-5">
+                            <div class="col-md-6">
+                                <p><span>Employee Id:</span>  @Html.DisplayFor(modelItem => item.EmpId)</p>
+                                <p><span>First Name:</span>  @Html.DisplayFor(modelItem => item.FirstName)</p>
+                                <p><span>Address:</span>  @Html.DisplayFor(modelItem => item.Address)</p>
+                                <p><span>Email:</span>  @Html.DisplayFor(modelItem => item.Email)</p>
+                                <p><span>Department:</span>   @Html.DisplayFor(modelItem => item.DepartmentName)</p>
+
+                            </div>
+                            <div class="col-md-6">
+                                <p></p>
+                                <p><span>Last Name:</span>  @Html.DisplayFor(modelItem => item.LastName)</p>
+                                <p><span>Contact No.:</span>  @Html.DisplayFor(modelItem => item.PhoneNumber)</p>
+                                <p><span>Salary:</span>   @Html.DisplayFor(modelItem => item.Salary)</p>
+                                <p><span>Postion:</span>   @Html.DisplayFor(modelItem => item.PositionName)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

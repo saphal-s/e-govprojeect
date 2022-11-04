@@ -1,0 +1,43 @@
+﻿@model empmgmt.Models.LoginModel
+
+@{
+    ViewData["Title"] = "Create";
+     List<SelectListItem> departments = (List<SelectListItem>)ViewBag.Departments;
+}
+
+
+<section class="col-md-6 offset-md-3 pt-5 mt-5">
+    <section class='login' id='login'>
+        <div class='head'>
+            <h1 class='company'>Employee Management System</h1>
+        </div>
+        <p class='msg'>Welcome back</p>
+        <div class="form">
+            <form asp-action="Login" asp-controller="Home" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName"class="control-label" ></label>
+                <input asp-for="UserName" type="text" placeholder='Username' class='text' id='username' />
+            </div><br>
+            
+             <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password"type="password" placeholder='••••••••••••••' class='password' />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <center>
+                <div class="form-group">
+                   <input type="submit" value="Login" class='btn-login' id='do-login' />
+                
+            </div>
+            </center>
+        </form>
+        </div>
+    </section>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
